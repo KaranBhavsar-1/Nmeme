@@ -5,83 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lol Memes</title>
+    <!-- <link rel="stylesheet" href="home_style.css"> -->
+    <link rel="stylesheet" href="CSS\nav.css">
+    <link rel="stylesheet" href="CSS\meme_Container.css">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-            font-family: sans-serif;
+        .meme-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 columns */
+            gap: 20px;
         }
-        /* --- FIXED NAVBAR --- */
-        nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
+
+
+        .container {
+            background: #eee;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .container img {
             width: 100%;
-            background-color: #333;
-            z-index: 9999;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-            /* Prevent content behind on some browsers */
-            backdrop-filter: blur(3px);
-            /* Account for notches / safe area on mobile */
-            padding-bottom: env(safe-area-inset-bottom);
-        }
-
-        /* Flex layout */
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        /* Each list item equal width */
-        nav ul li {
-            flex: 1;
-        }
-
-        /* Link styling */
-        nav ul li a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            padding: 10px 0;
-            font-size: 14px;
-        }
-
-        nav ul li a:hover {
-            background-color: #111;
-        }
-
-        /* Icon styling */
-        nav li img {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 4px;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            nav ul li a {
-                font-size: 12px;
-                padding: 8px 0;
-            }
-
-            nav li img {
-                width: 20px;
-                height: 20px;
-            }
+            height: auto;
+            border-radius: 10px;
         }
     </style>
+
 </head>
 
 <body>
@@ -94,6 +42,9 @@
                 <li><a href="browse.html">
                         <img src="images\browse.png" alt="Home emoji" width="20px" height="20px">
                         Browse</a></li>
+                        <li><a href="Like.html">
+                        <img src="images\like.png" alt="Home emoji" width="20px" height="20px">
+                        Liked Memes</a></li>
                 <li><a href="setting.html">
                         <img src="images\setting.png" alt="Home emoji" width="20px" height="20px">
                         Settings</a></li>
@@ -101,8 +52,14 @@
         </nav>
     </div>
     <div>
-        <h1 text-align = "center">Browser</h1>
+        <h1 style="text-align:center">Browser</h1>
+    </div>
+    <div id="memePlace" class="meme-grid"></div>
+    <div>
+        <h2>Browse Categories</h2>
     </div>
 </body>
+<!-- <script src="JS/home.js"></script> -->
+<script src="JS/browse.js"></script>
 
 </html>
