@@ -5,31 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lol Memes</title>
-    <!-- <link rel="stylesheet" href="home_style.css"> -->
     <link rel="stylesheet" href="CSS\nav.css">
     <link rel="stylesheet" href="CSS\meme_Container.css">
-    <style>
-        .meme-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            /* 2 columns */
-            gap: 20px;
-        }
-
-
-        .container {
-            background: #eee;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        .container img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -42,7 +19,7 @@
                 <li><a href="browse.html">
                         <img src="images\browse.png" alt="Home emoji" width="20px" height="20px">
                         Browse</a></li>
-                        <li><a href="Like.html">
+                <li><a href="like.html">
                         <img src="images\like.png" alt="Home emoji" width="20px" height="20px">
                         Liked Memes</a></li>
                 <li><a href="setting.html">
@@ -52,14 +29,22 @@
         </nav>
     </div>
     <div>
-        <h1 style="text-align:center">Browser</h1>
-    </div>
-    <div id="memePlace" class="meme-grid"></div>
-    <div>
         <h2>Browse Categories</h2>
+        <h3 id="printcategorytype"></h3>
+    </div>
+    <div id="Categories">
+        <div>
+            <button id="wholeSome">WholeSome Memes</button>
+            <button id="games">Games Memes</button>
+            <button id="cats">Cats Memes</button>
+            <button id="tech">Tech Memes</button>
+            <button id="dank">Dank Memes</button>
+        </div>
     </div>
 </body>
-<!-- <script src="JS/home.js"></script> -->
+
 <script src="JS/browse.js"></script>
+<script src="JS/main.js">
+</script>
 
 </html>
