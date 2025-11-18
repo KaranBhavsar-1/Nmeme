@@ -8,12 +8,10 @@ const dankMeme = document.querySelector("#dank");
 if (localStorage.getItem("memeType") == 0) {
   printcategorytype.innerHTML = `Current Category type:- Random Meme`;
 } else {
-  printcategorytype.innerHTML = `Current Category type:- wholeSome Meme`;
+  printcategorytype.innerHTML = `Current Category type:- ${localStorage.getItem("memeType").replace(/^\/ */, "")}`;
 }
 
-wholeSomeMeme.addEventListener("click", () => {
-  change("wholesomememes");
-});
+
 gamesMeme.addEventListener("click", () => {
   change("gamermemes");
 });
@@ -25,6 +23,9 @@ techMeme.addEventListener("click", () => {
 });
 dankMeme.addEventListener("click", () => {
   change("dankmemes");
+});
+wholeSomeMeme.addEventListener("click", () => {
+  change("wholesomememes");
 });
 
 function change(type) {
