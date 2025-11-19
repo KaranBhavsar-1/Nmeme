@@ -83,8 +83,23 @@ function displayCategories() {
   saved.forEach((cat) => {
     const btn = document.createElement("button");
     btn.className = "button"; // apply your button CSS class
+
+    // Create a safe ID (remove spaces + convert to lowercase)
+    const safeId = cat.name.replace(/\s+/g, "_").toLowerCase();
+
+    btn.id = safeId;
     btn.textContent = `${cat.name}: ${cat.subreddits.join(", ")}`;
+
+
+    btn.addEventListener("click", () => {
+      // console.log(cat.subreddits);
+      change(cat)
+    });
+
+
     output.appendChild(btn);
+    // console.log(btn.id);
+    
   });
 }
 

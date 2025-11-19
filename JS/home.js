@@ -11,28 +11,59 @@ const savebutton = document.querySelector("#Save");
 if (!localStorage.getItem("memeType")) {
   localStorage.setItem("memeType", "");
 }
-const memeType = localStorage.getItem("memeType");
-// console.log(typeof memeType);
+let memetype = localStorage.getItem("memeType");
 
-let API_Link = `https://meme-api.com/gimme${memeType}/50`;
+let API_Link = `https://meme-api.com/gimme${memetype}/50`;
 let memes = [];
 let currentIndex = 0;
 const likedMemes = JSON.parse(localStorage.getItem("likedImages") || "[]");
-// console.log(typeof memeType);
+console.log(typeof memetype);
+memetype = memetype.replace("//", "/").split(",");
+console.log(memetype);
+console.log(typeof memetype);
 
 getMeme();
 
 async function getMeme() {
+  memes = []; // reset array
+
   try {
-    const response = await fetch(API_Link);
-    const data = await response.json();
-    memes = data.memes;
-    currentIndex = 0;
+    if (typeof memetype === "string") {
+      await fetchSubreddit(memetype);
+    } else {
+      for (const item of memetype) {
+        await fetchSubreddit(item);
+      }
+    }
+
+    console.log("Total memes fetched:", memes.length);
     addMemes(memes[currentIndex]);
-  } catch (error) {
-    console.error("Error:", error);
-    image.alt = `Caught an Error: [${error}]`;
-    title.innerHTML = `[${error}]`;
+  } catch (err) {
+    console.log("Error:", err);
+  }
+}
+
+async function fetchSubreddit(sr) {
+  const link = `https://meme-api.com/gimme${sr}/50`;
+
+  try {
+    const response = await fetch(link);
+    if (!response.ok) {
+      console.warn(
+        `Subreddit ${sr} not found (status: ${response.status}), skipping.`
+      );
+      return; // skip this subreddit
+    }
+    const data = await response.json();
+
+    if (!data.memes) {
+      console.warn(`❌ Skipping invalid subreddit: ${sr}`);
+      return;
+    }
+
+    memes.push(...data.memes);
+  } catch (err) {
+    console.warn(`❌ Error fetching subreddit ${sr}:`, err);
   }
 }
 
@@ -42,7 +73,6 @@ function addMemes(meme) {
   img.src = meme.url;
   image.src = meme.preview[0];
 
-  // 2️⃣ Show loading GIF
   loader.style.display = "block";
 
   title.innerHTML = meme.title;
@@ -82,19 +112,11 @@ Likebutton.addEventListener("click", () => {
   addLikeMeme(memes[currentIndex]);
 });
 savebutton.addEventListener("click", () => {
-  downloadImage(memes[currentIndex].url,"image.jpg");
+  downloadImage(memes[currentIndex].url, "image.jpg");
 });
 
 function downloadImage(url, fileName = "image.jpg") {
-  // Create a temporary link and trigger download
-  // const a = document.createElement("a");
-  // a.href = url;
-  // a.download = fileName;
-  // document.body.appendChild(a);
-  // a.click();
-  // document.body.removeChild(a);
   console.log("meme Downloadded");
-  
 }
 
 function addLikeMeme(arr) {

@@ -37,6 +37,16 @@ wholeSomeMeme.addEventListener("click", () => {
 // } )
 function change(type) {
   console.log(type);
+  if (typeof type == "string"){
   localStorage.setItem("memeType", `/${type}`);
   printcategorytype.innerHTML = `Current Category type:- ${type}`;
+  } else if (typeof type == "object"){
+    console.log("object");
+  localStorage.setItem("memeType", `/${type.subreddits}`);
+    // localStorage.setItem("memeType", JSON.stringify(type.name));
+  printcategorytype.innerHTML = `Current Category type:- ${type.name}`;
+
+  }
+  // console.log(lol);
+  
 }
