@@ -1,4 +1,7 @@
 const printcategorytype = document.querySelector("#printcategorytype");
+
+const add_More = document.querySelector("#makeone");
+
 const wholeSomeMeme = document.querySelector("#wholeSome");
 const gamesMeme = document.querySelector("#games");
 const catsMeme = document.querySelector("#cats");
@@ -28,6 +31,10 @@ wholeSomeMeme.addEventListener("click", () => {
   change("wholesomememes");
 });
 
+// add_More.addEventListener("click" ,()=>{
+//   add_Meme_Type()
+//   change()
+// } )
 function change(type) {
   console.log(type);
   localStorage.setItem("memeType", `/${type}`);

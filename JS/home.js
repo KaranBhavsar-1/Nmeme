@@ -12,11 +12,14 @@ if (!localStorage.getItem("memeType")) {
   localStorage.setItem("memeType", "");
 }
 const memeType = localStorage.getItem("memeType");
+// console.log(typeof memeType);
 
 let API_Link = `https://meme-api.com/gimme${memeType}/50`;
 let memes = [];
 let currentIndex = 0;
 const likedMemes = JSON.parse(localStorage.getItem("likedImages") || "[]");
+// console.log(typeof memeType);
+
 getMeme();
 
 async function getMeme() {
@@ -34,11 +37,27 @@ async function getMeme() {
 }
 
 function addMemes(meme) {
-  image.src = meme.url;
+  const loader = document.querySelector("#loader");
+  let img = new Image();
+  img.src = meme.url;
+  image.src = meme.preview[0];
+
+  // 2️⃣ Show loading GIF
+  loader.style.display = "block";
+
   title.innerHTML = meme.title;
   subReddit.innerHTML = `r/${meme.subreddit}`;
   link.innerHTML = `<a href="${meme.postLink}" target="_blank">${meme.postLink}</a>`;
   memeCount.innerHTML = `count: ${currentIndex + 1} / ${memes.length}`;
+  img.onload = () => {
+    image.src = meme.url;
+    loader.style.display = "none";
+  };
+
+  img.onerror = () => {
+    console.error("Error loading", meme.url);
+    loader.style.display = "none";
+  };
 }
 
 NextMemeButton.addEventListener("click", () => {
@@ -63,12 +82,21 @@ Likebutton.addEventListener("click", () => {
   addLikeMeme(memes[currentIndex]);
 });
 savebutton.addEventListener("click", () => {
-  downloadImage(memes[currentIndex].url);
+  downloadImage(memes[currentIndex].url,"image.jpg");
 });
 
-function downloadImage(url) {
-  console.log("Image downloaded");
+function downloadImage(url, fileName = "image.jpg") {
+  // Create a temporary link and trigger download
+  // const a = document.createElement("a");
+  // a.href = url;
+  // a.download = fileName;
+  // document.body.appendChild(a);
+  // a.click();
+  // document.body.removeChild(a);
+  console.log("meme Downloadded");
+  
 }
+
 function addLikeMeme(arr) {
   if (!likedMemes.some((m) => m.url === arr.url)) {
     likedMemes.push({

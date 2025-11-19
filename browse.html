@@ -2,14 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lol Memes</title>
+    <meta charset="UTF-8" />
+    <title>Category Input Popup</title>
+    <link rel="stylesheet" href="CSS\add_Meme_btn.css">
     <link rel="stylesheet" href="CSS\nav.css">
     <link rel="stylesheet" href="CSS\meme_Container.css">
 </head>
 
 <body>
+
     <div>
         <nav>
             <ul>
@@ -39,12 +40,36 @@
             <button id="cats">Cats Memes</button>
             <button id="tech">Tech Memes</button>
             <button id="dank">Dank Memes</button>
+            <button id="addDataBtn">
+                <img src="images\Add_More.png" alt="Home emoji" width="20px" height="20px">
+                Add Memes</button>
         </div>
     </div>
+    <div id="overlay">
+        <div id="popup">
+            <label for="categoryName">Category Name</label>
+            <textarea id="categoryName" placeholder="Enter category name"></textarea>
+
+            <label for="categorySubs">Category subreddits</label>
+            <textarea id="categorySubs" placeholder="Type & press Enter"></textarea>
+            <small>Add subreddit by pressing Enter, click chip to remove.</small>
+
+            <div class="chip-container" id="chipContainer"></div>
+
+            <button id="saveBtn">Add Category</button>
+        </div>
+    </div>
+    <div>
+        Your personal added categories:-
+        <div id="output"></div>
+
+    </div>
+
 </body>
 
+<script src="JS\add_Meme.js"></script>
+
 <script src="JS/browse.js"></script>
-<script src="JS/main.js">
-</script>
+<script src="JS/main.js"></script>
 
 </html>
