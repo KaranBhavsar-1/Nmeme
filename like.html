@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lol Memes</title>
+    <link rel="stylesheet" href="CSS\nav.css">
+    <link rel="stylesheet" href="CSS\button.css">
+    <style>
+        .meme-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .container {
+            background: #eee;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="index.html">
+                        <img src="images\home.png" alt="Home emoji" width="20px" height="20px">
+                        Home</a></li>
+                <li><a href="browse.html">
+                        <img src="images\browse.png" alt="Home emoji" width="20px" height="20px">
+                        Browse</a></li>
+                <li><a href="like.html">
+                        <img src="images\like.png" alt="Home emoji" width="20px" height="20px">
+                        Liked Memes</a></li>
+                <li><a href="setting.html">
+                        <img src="images\setting.png" alt="Home emoji" width="20px" height="20px">
+                        Settings</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <h1 style="text-align:center">Liked Memes</h1>
+    </div>
+    <div>
+        <h3 id="likedmemeCount"></h3>
+    </div>
+    <div>
+        <button id="clearLike"><img src="images\like.png" width="20px" height="20px" alt="">remove all Liked
+            Memes</button>
+    </div>
+    <div id="memePlace" class="meme-grid"></div>
+</body>
+
+<script src="JS/like.js"></script>
+<script src="JS/main.js"></script>
+
+</html>

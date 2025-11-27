@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lol Memes</title>
+    <link rel="stylesheet" href="CSS\nav.css">
+    <link rel="stylesheet" href="CSS\button.css">
+    <link rel="stylesheet" href="CSS\Index Page\meme_Container.css">
+    <link rel="stylesheet" href="CSS\Index Page\meme_scroll.css">
+
+
+</head>
+
+<body>
+    <!-- Bottom Navigation Bar -->
+    <div>
+        <nav>
+            <ul>
+                <li><a href="index.html">
+                        <img src="images\home.png" alt="Home emoji" width="20px" height="20px">
+                        Home</a></li>
+                <li><a href="browse.html">
+                        <img src="images\browse.png" alt="Home emoji" width="20px" height="20px">
+                        Browse</a></li>
+                <li><a href="like.html">
+                        <img src="images\like.png" alt="Home emoji" width="20px" height="20px">
+                        Liked Memes</a></li>
+                <li><a href="setting.html">
+                        <img src="images\setting.png" alt="Home emoji" width="20px" height="20px">
+                        Settings</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Bottom Navigation Bar -- [END]-->
+
+    <!-- <div style="text-align: center;"> -->
+    <div align="center">
+        <!-- <div class="container"> -->
+        <div class="container" id="memeBox" tabindex="0">
+            <img id="image" src="" alt="Meme" />
+
+            <!-- ⭐ NEW: Loader GIF -->
+            <img id="loader" src="images\loading_gif.gif" alt="Loading..." />
+            <div id="memeCount">Memes Count</div>
+            <div class="text-stack">
+                <h3 id="subReddit">Sub-Reddit</h3>
+                <h2 id="title">Title</h2>
+                <h2 id="link">Link</h2>
+            </div>
+            <div class="action-buttons">
+    <div id="sideLike" class="action-btn">
+        ❤️
+    </div>
+
+    <div id="sideDownload" class="action-btn">
+        ⬇️
+    </div>
+</div>
+
+        </div>
+        <button id="Back">Back</button>
+        <button id="Next">Next</button>
+        <button id="Like">Like</button>
+        <button id="Save">Download</button>
+    </div>
+</body>
+<!-- Main working -->
+<script src="JS\home.js">
+</script>
+<!-- main is the theme -->
+<script src="JS/main.js">
+</script>
+
+</html>

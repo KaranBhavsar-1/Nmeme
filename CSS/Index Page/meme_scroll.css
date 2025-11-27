@@ -1,0 +1,46 @@
+/* NEXT (scroll down) */
+.meme-enter-next {
+  animation: memeEnterNext 0.35s ease-out forwards;
+}
+
+.meme-exit-next {
+  animation: memeExitNext 0.35s ease-in forwards;
+}
+
+@keyframes memeEnterNext {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes memeExitNext {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-100%); opacity: 0; }
+}
+
+
+/* BACK (scroll up) */
+.meme-enter-back {
+  animation: memeEnterBack 0.35s ease-out forwards;
+}
+
+.meme-exit-back {
+  animation: memeExitBack 0.35s ease-in forwards;
+}
+
+@keyframes memeEnterBack {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes memeExitBack {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(100%); opacity: 0; }
+}
+
+
+/* ensure touch & wheel are handled by JS, not browser scroll */
+#memeBox {
+  touch-action: none;    /* allow custom touch swipe handling */
+  -webkit-user-select: none;
+  user-select: none;
+}
