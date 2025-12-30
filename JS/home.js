@@ -9,7 +9,7 @@ const Likebutton = document.querySelector("#Like");
 const savebutton = document.querySelector("#Save");
 
 if (!localStorage.getItem("memeType")) {
-  localStorage.setItem("memeType", "");
+  localStorage.setItem("memeType", "/catsMemes");
 }
 
 let isScrolling = false;
